@@ -9,21 +9,18 @@
           TeamWork helps cross-functional project and groups stay sharp with a
           robust suite of shared productivity tools
         </p>
-        <b-container
+
+        <b-row
+          cols="12"
+          md="12"
           v-for="(image, index) in icons"
           :key="index"
-          class="mt-4 pt-4"
+          class="mt-4 pt-4 pl-5 ml-5 text-center"
         >
-          <b-row>
-            <b-col
-              cols="12"
-              md="12"
-              class="row justify-content-center icon-image"
-            >
-              <img :src="getImgUrl(image.icon)" class="img-fluid" />
-            </b-col>
-          </b-row>
-        </b-container>
+          <!--  -->
+          <img :src="getImgUrl(image.icon)" class="img-fluid ml-5 pl-5" />
+          <!-- <p class="content">{{ image.content }}</p> -->
+        </b-row>
       </b-col>
     </b-row>
   </b-container>
@@ -36,14 +33,17 @@ export default {
     icons: [
       {
         icon: "icon_1.png",
+        content: "save your work",
       },
 
       {
         icon: "icon_2.png",
+        content: "manage your work",
       },
 
       {
         icon: "icon_3.png",
+        content: "finish your job",
       },
     ],
   }),
@@ -75,8 +75,9 @@ export default {
     line-height: 26px;
   }
 
-  .icon-image {
+  .text-center {
     float: left;
+    padding: 2.5rem;
   }
 }
 </style>

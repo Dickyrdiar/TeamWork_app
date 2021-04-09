@@ -15,7 +15,7 @@
             you and your team's work
           </p>
 
-          <a href="/contacts" class="btn btn-tmwrk">Contact Us</a>
+          <a href="#" class="btn btn-tmwrk">Join Us</a>
         </b-col>
       </b-col>
 

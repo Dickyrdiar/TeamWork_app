@@ -3,7 +3,8 @@
     <BaseNavbar />
     <Hero />
     <Competent />
-    <BaseCompany />
     <BaseIcon />
+    <BaseCompany />
+    <!-- <BaseFooter /> -->
   </div>
 </template>
