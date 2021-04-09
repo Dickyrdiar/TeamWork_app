@@ -8,9 +8,10 @@
           <b-collapse id="nav-collapse" is-nav>
             <!-- Right aligned nav items -->
             <b-navbar-nav class="ml-auto menu">
-              <b-nav-item>Join Us</b-nav-item>
+              <b-nav-item>Why Us</b-nav-item>
               <b-nav-item>Resource</b-nav-item>
               <b-nav-item>Services</b-nav-item>
+              <b-nav-item>Features</b-nav-item>
               <a href="#" class="btn btn-tmwrk"> Started Here </a>
             </b-navbar-nav>
           </b-collapse>
