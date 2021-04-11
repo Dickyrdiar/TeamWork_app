@@ -15,7 +15,7 @@
             you and your team's work
           </p>
 
-          <a href="#" class="btn btn-tmwrk">Join Us</a>
+          <a href="/login" class="btn btn-tmwrk">Join Us</a>
         </b-col>
       </b-col>
 

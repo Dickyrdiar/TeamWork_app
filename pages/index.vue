@@ -5,6 +5,6 @@
     <Competent />
     <BaseIcon />
     <BaseCompany />
-    <!-- <BaseFooter /> -->
+    <BaseFooter />
   </div>
 </template>
