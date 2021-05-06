@@ -38,7 +38,25 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    '@nuxtjs/axios', 
+    '@nuxtjs/auth-next'
   ],
+
+  axios: {
+    baseUrl: 'http://localhost:3001/api'
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/auth/sessions', mehtod: 'post', propertyName: 'data.token'}, 
+          user: { url: 'me', method: 'get', propertyName: 'data' }, 
+          logout: false
+        }
+      }
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
