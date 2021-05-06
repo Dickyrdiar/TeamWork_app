@@ -1,59 +1,101 @@
 <template>
-  <b-container class="login mt-5 pt-5">
-    <b-row>
-      <b-col cols="12" md="6">
-        <b-col cols="12" md="8">
-          <h3 class="login-title mt-5 pt-5 text-center">Login is here</h3>
+  <div class="login-page">
+    <b-container fluid>
+      <b-row no-gutter>
+        <b-col cols="12" md="4" class="login mt-4 pt-4">
+          <h4 class="login_title mb-5 pb-5" href="/">TeamWork</h4>
 
-          <b-form>
+          <form
+            class="ml-3 pl-3 login_form"
+            method="post"
+            @submit.prevent="login"
+          >
+            <h5 class="text_heading mt-4">Login</h5>
             <b-form-group
-              id="input-email-1"
+              id="emailset-1"
+              description="enter your email here"
+              label="Email"
               label-for="input-1"
-              class="text-center mt-4 pt-4"
             >
               <b-form-input
-                id="email-1"
                 type="email"
-                placeholder="Enter email"
-                required
-              ></b-form-input>
+                id="email-1"
+                v-model="email"
+                :state="state"
+                trim
+                class="col-md-8"
+              />
             </b-form-group>
 
             <b-form-group
-              id="input-password"
-              label-for="password-1"
-              class="text-center mt-3 pt-3"
+              id="password-set-1"
+              description="password is here"
+              label="Password"
+              label-for="input-2"
             >
               <b-form-input
                 type="password"
-                id="text-password"
-                aria-describedby="password-help-block"
-                placeholder="password is here"
-              ></b-form-input>
-              <!-- <p class="forgot">Forgot password</p> -->
+                id="password-1"
+                v-model="password"
+                :state="state"
+                trim
+                class="col-md-8"
+              />
             </b-form-group>
 
-            <a href="#" class="btn btn-tmwrk text-center">Login</a>
-          </b-form>
-        </b-col>
-      </b-col>
+            <b-button type="submit" class="btn btn-tmwrk">Login</b-button>
+          </form>
 
-      <b-col cols="12" md="6">
-        <img
-          :src="require('../assets/images/TeamLogin.png')"
-          alt="content-right"
-          class="img-fluid image-hero mt-5"
-        />
-      </b-col>
-    </b-row>
-  </b-container>
+          <b-col cols="12" md="6" class="pt-4 mt-4">
+            <a href="#" class="btn btn-white">Google</a>
+            <a href="#" class="btn btn-white">Github</a>
+          </b-col>
+        </b-col>
+
+        <b-col cols="12" md="8" class="bg-white d-none d-md-flex bg-image">
+          <img
+            :src="require('../assets/images/login_image.png')"
+            class="img-fluid image-hero mt5"
+          />
+        </b-col>
+      </b-row>
+
+      <b-row> </b-row>
+    </b-container>
+  </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      email: "",
+      password: "",
+      error: null,
+    };
+  },
+
+  methods: {
+    async login() {
+      await this.$auth.loginWith("local", {
+        data: {
+          email: this.email,
+          password: this.password,
+        },
+      });
+
+      this.$router.push("/");
+    },
+  },
+};
+</script>
+
 <style lang="scss" scoped>
-.login {
-  background-color: #ffffff;
-  .login-title {
-    top: -12rem;
+.login-page {
+  width: 100%;
+
+  .text-heading {
+    left: 3rem;
   }
 
   .btn-tmwrk {
