@@ -18,13 +18,7 @@
             </p>
             <div class="mt-3 pt-3">
               <b-form-group id="emailset-2" label="Email" label-for="input_1">
-                <b-form-input
-                  type="email"
-                  id="email-2"
-                  v-model="email"
-                  trim
-                  class="col-md-6"
-                />
+                <b-form-input type="email" id="email-2" trim class="col-md-6" />
               </b-form-group>
 
               <b-form-group
@@ -35,7 +29,6 @@
                 <b-form-input
                   type="text"
                   id="username-1"
-                  v-model="username"
                   trim
                   class="col-md-6"
                 />
@@ -48,8 +41,7 @@
               >
                 <b-form-input
                   type="password"
-                  id="pasword-1"
-                  v-model="pasword"
+                  id="password-1"
                   trim
                   class="col-md-6"
                 />
@@ -63,7 +55,6 @@
                 <b-form-input
                   type="password"
                   id="pasword-1"
-                  v-model="pasword"
                   trim
                   class="col-md-6"
                 />
@@ -73,8 +64,13 @@
                 type="submit"
                 class="btn btn-tmwrk col-md-6"
                 id="login_button"
-                >Login</b-button
+                >Register</b-button
               >
+
+              <b-col cols="12" md="6" class="pt-2 mt-2">
+                <a href="#" class="btn btn-white">Google</a>
+                <a href="#" class="btn btn-white">Github</a>
+              </b-col>
             </div>
           </form>
         </b-col>

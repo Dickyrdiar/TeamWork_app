@@ -43,7 +43,8 @@ export default {
   ],
 
   axios: {
-    baseUrl: 'http://localhost:3001/api'
+    baseUrl: 'http://localhost:3001/',
+    credentials: false
   },
 
   auth: {

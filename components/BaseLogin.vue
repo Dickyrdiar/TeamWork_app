@@ -5,11 +5,7 @@
         <b-col cols="12" md="4" class="login mt-4 pt-4">
           <h4 class="login_title mb-5 pb-5" href="/">TeamWork</h4>
 
-          <form
-            class="ml-3 pl-3 login_form"
-            method="post"
-            @submit.prevent="login"
-          >
+          <form class="ml-3 pl-3 login_form" method="post" @submit="submitForm">
             <h5 class="text_heading mt-4">Login</h5>
             <b-form-group
               id="emailset-1"
@@ -36,7 +32,6 @@
                 type="password"
                 id="password-1"
                 v-model="password"
-                :state="state"
                 trim
                 class="col-md-8"
               />
@@ -69,23 +64,29 @@
 
 <script>
 export default {
+  name: "LoginPage",
   data() {
     return {
       email: "",
       password: "",
-      error: null,
     };
   },
 
   methods: {
-    async login() {
-      await this.$auth.loginWith("local", {
-        data: {
-          email: this.email,
-          password: this.password,
-        },
-      });
-      this.$route.push(`/${slug}`);
+    async submitForm(evt) {
+      evt.preventDefault();
+      const credentials = {
+        email: this.email,
+        password: this.password,
+      };
+      try {
+        await this.$auth.loginWith("local", {
+          data: credentials,
+        });
+        this.$router.push("/");
+      } catch (e) {
+        this.$router.push("/login");
+      }
     },
   },
 };
