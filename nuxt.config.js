@@ -53,8 +53,16 @@ export default {
           login: { url: '/auth/sessions', mehtod: 'post', propertyName: 'data.token'}, 
           user: { url: 'me', method: 'get', propertyName: 'data' }, 
           logout: false
-        }
+        }, 
+
+        tokenRequired: true, 
+        tokenType: 'Bearer'
       }
+    }, 
+    redirect: {
+      login: '/?login=1', 
+      logout: '/',
+      user: '/profile'
     }
   },
 

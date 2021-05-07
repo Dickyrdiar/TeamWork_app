@@ -21,7 +21,6 @@
                 type="email"
                 id="email-1"
                 v-model="email"
-                :state="state"
                 trim
                 class="col-md-8"
               />
@@ -43,7 +42,10 @@
               />
             </b-form-group>
 
-            <b-button type="submit" class="btn btn-tmwrk">Login</b-button>
+            <b-button type="submit" class="btn btn-tmwrk" id="login_button"
+              >Login</b-button
+            >
+            <p>don't have an account ? <a href="/signup">Register</a></p>
           </form>
 
           <b-col cols="12" md="6" class="pt-4 mt-4">
@@ -54,7 +56,7 @@
 
         <b-col cols="12" md="8" class="bg-white d-none d-md-flex bg-image">
           <img
-            :src="require('../assets/images/login_image.png')"
+            :src="require('../assets/images/login.png')"
             class="img-fluid image-hero mt5"
           />
         </b-col>
@@ -83,8 +85,7 @@ export default {
           password: this.password,
         },
       });
-
-      this.$router.push("/");
+      this.$route.push(`/${slug}`);
     },
   },
 };
